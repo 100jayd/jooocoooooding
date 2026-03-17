@@ -3,12 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>TSLA & PLTR Tracker</title>
+  
+  <!-- Fonts: Inter for modern clean UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+
+  <!-- Ticker Tape -->
+  <div class="tradingview-widget-container ticker-tape">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {
+          "proName": "NASDAQ:TSLA",
+          "title": "Tesla"
+        },
+        {
+          "proName": "NYSE:PLTR",
+          "title": "Palantir"
+        },
+        {
+          "proName": "FOREXCOM:SPXUSD",
+          "title": "S&P 500"
+        },
+        {
+          "proName": "FOREXCOM:NSXUSD",
+          "title": "US 100"
+        }
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": false,
+      "displayMode": "adaptive",
+      "locale": "en"
+    }
+    </script>
+  </div>
+
+  <header class="header">
+    <h1><span class="gradient-text">Portfolio</span> Dashboard</h1>
+    <p class="subtitle">Real-time tracking for Tesla & Palantir</p>
+  </header>
+
+  <main class="dashboard">
+    
+    <!-- Tesla Card -->
+    <article class="stock-card">
+      <div class="card-header">
+        <div class="stock-info">
+          <img src="https://s3-symbol-logo.tradingview.com/tesla-motors--big.svg" alt="Tesla Logo" class="stock-logo">
+          <div>
+            <h2>TSLA</h2>
+            <p>Tesla, Inc.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tesla Chart Widget -->
+      <div class="chart-container">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+          {
+            "autosize": true,
+            "symbol": "NASDAQ:TSLA",
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "enable_publishing": false,
+            "backgroundColor": "rgba(19, 23, 34, 1)",
+            "gridColor": "rgba(42, 46, 57, 0.4)",
+            "hide_top_toolbar": false,
+            "hide_legend": false,
+            "save_image": false,
+            "container_id": "tradingview_tsla"
+          }
+          </script>
+        </div>
+      </div>
+    </article>
+
+    <!-- Palantir Card -->
+    <article class="stock-card">
+      <div class="card-header">
+        <div class="stock-info">
+          <img src="https://s3-symbol-logo.tradingview.com/palantir--big.svg" alt="Palantir Logo" class="stock-logo">
+          <div>
+            <h2>PLTR</h2>
+            <p>Palantir Technologies</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Palantir Chart Widget -->
+      <div class="chart-container">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+          {
+            "autosize": true,
+            "symbol": "NYSE:PLTR",
+            "interval": "D",
+            "timezone": "Etc/UTC",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "enable_publishing": false,
+            "backgroundColor": "rgba(19, 23, 34, 1)",
+            "gridColor": "rgba(42, 46, 57, 0.4)",
+            "hide_top_toolbar": false,
+            "hide_legend": false,
+            "save_image": false,
+            "container_id": "tradingview_pltr"
+          }
+          </script>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
