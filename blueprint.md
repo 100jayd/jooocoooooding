@@ -18,3 +18,9 @@ A beautifully designed, real-time stock tracking dashboard focused exclusively o
 3. **Apply Modern Styling:** Update `style.css` with a sleek dark-mode color palette, custom Google Fonts (e.g., Inter), smooth transitions, and responsive container queries.
 4. **JavaScript Enhancements:** Use `main.js` to manage any dynamic interactions if necessary (mostly handled by TradingView widgets, but JS can add a clock or greeting).
 5. **Deploy & Version Control:** Commit changes and push them automatically to GitHub as requested by the user.
+
+## New Feature: Math Knowledge Graph
+- **Purpose:** Visualize the hierarchical relationships between elementary mathematics concepts.
+- **Implementation:** 
+  - A Python script (`math_graph.py`) uses `networkx` and `matplotlib` to generate a directed graph image (`elementary_math_map.png`).
+  - The image is displayed in a new dedicated section on the web dashboard, styled with the same modern dark-mode aesthetic as the stock tracker.
